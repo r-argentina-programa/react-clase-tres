@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import AnimeSearch from './AnimeSearch';
-import { CacheProvider } from '../hooks/useFetch';
+import { CacheProvider } from '../hooks/useFetchWithCache';
 import Anime from './Anime';
 
 const Wrapper = styled.div`

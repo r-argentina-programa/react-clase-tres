@@ -17,7 +17,15 @@ const cacheReducer = (state, action) => {
 };
 
 export function CacheProvider({ children }) {
-  const [state, dispatch] = useReducer(cacheReducer, {});
+  const [state, dispatch] = useReducer(
+    cacheReducer,
+    JSON.parse(localStorage.getItem('JIKAN_CACHE'))
+  );
+
+  useEffect(() => {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('JIKAN_CACHE', serializedState);
+  }, [state]);
 
   return <CacheContext.Provider value={{ state, dispatch }}>{children}</CacheContext.Provider>;
 }
