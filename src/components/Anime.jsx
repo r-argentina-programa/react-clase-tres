@@ -14,7 +14,7 @@ const Anime = () => {
   const { id } = useParams();
   const { data, loading, error } = useInstantFetch(jikan.getAnimeById, id);
 
-  if (!data || loading) return <Loading />;
+  if (loading) return <Loading />;
 
   if (error) return 'Something went wrong';
 
@@ -47,5 +47,7 @@ const Anime = () => {
         <NavLink to={`/anime/${Number(id) + 1}`}>Next</NavLink>
       </>
     );
+
+  return null;
 };
 export default Anime;

@@ -3,7 +3,7 @@ import jikan from '../jikan';
 import Loading from './Loading';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { withCache } from '../hooks/useFetchWithCache';
+import { withCache } from '../CacheContext';
 
 class AnimeClass extends Component {
   state = {
@@ -44,7 +44,7 @@ class AnimeClass extends Component {
   render() {
     const { data, loading, error } = this.state;
 
-    if (!data || loading) return <Loading />;
+    if (loading) return <Loading />;
 
     if (error) return 'Something went wrong';
 
@@ -77,6 +77,8 @@ class AnimeClass extends Component {
           <NavLink to={`/anime/${Number(this.props.match.params.id) + 1}`}>Next</NavLink>
         </>
       );
+
+    return null;
   }
 }
 

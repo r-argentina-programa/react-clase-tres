@@ -43,7 +43,7 @@ const Image = styled.img`
 
 const AnimeSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { data, error, loading } = useDebouncedFetch(jikan.searchAnime, searchTerm, 500);
+  const { data, error, loading } = useFetchOnChange(jikan.searchAnime, searchTerm, 500);
 
   return (
     <>
