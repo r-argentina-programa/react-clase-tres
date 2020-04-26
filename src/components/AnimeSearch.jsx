@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useFetchOnChange, useFetchReducer, useFetchWithCache } from '../hooks/useFetch';
+import { useFetchOnChange, useFetchReducer } from '../hooks/useSimpleFetch';
+import { useDebouncedFetch } from '../hooks/useFetchWithCache';
 import { NavLink } from 'react-router-dom';
 import jikan from '../jikan';
 import Loading from './Loading';
@@ -42,7 +43,7 @@ const Image = styled.img`
 
 const AnimeSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const { data, error, loading } = useFetchOnChange(jikan.searchAnime, searchTerm);
+  const { data, error, loading } = useDebouncedFetch(jikan.searchAnime, searchTerm, 500);
 
   return (
     <>

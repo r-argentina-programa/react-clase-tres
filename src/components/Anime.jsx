@@ -1,5 +1,5 @@
 import React from 'react';
-import useFetchWithCache from '../hooks/useFetch';
+import { useInstantFetch } from '../hooks/useFetchWithCache';
 import jikan from '../jikan';
 import { useParams } from 'react-router-dom';
 import Loading from './Loading';
@@ -12,7 +12,7 @@ const withoutAutoplay = (url) =>
 
 const Anime = () => {
   const { id } = useParams();
-  const { data, loading, error } = useFetchWithCache(jikan.getAnimeById, id);
+  const { data, loading, error } = useInstantFetch(jikan.getAnimeById, id);
 
   if (!data || loading) return <Loading />;
 
