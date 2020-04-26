@@ -1,7 +1,7 @@
 import React from 'react';
 import { useInstantFetch } from '../hooks/useFetchWithCache';
 import jikan from '../jikan';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Loading from './Loading';
 
 const withoutAutoplay = (url) =>
@@ -44,6 +44,7 @@ const Anime = () => {
             allowfullscreen
           />
         )}
+        <NavLink to={`/anime/${Number(id) + 1}`}>Next</NavLink>
       </>
     );
 };

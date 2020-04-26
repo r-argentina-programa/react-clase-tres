@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-do
 import AnimeSearch from './AnimeSearch';
 import { CacheProvider } from '../hooks/useFetchWithCache';
 import Anime from './Anime';
+import AnimeClass from './AnimeClass';
 
 const Wrapper = styled.div`
   min-height: 100vh;

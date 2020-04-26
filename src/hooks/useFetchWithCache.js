@@ -16,6 +16,12 @@ const cacheReducer = (state, action) => {
   }
 };
 
+export const withCache = (Component) => (props) => {
+  const cache = useContext(CacheContext);
+
+  return <Component {...props} cache={cache} />;
+};
+
 export function CacheProvider({ children }) {
   const [state, dispatch] = useReducer(
     cacheReducer,
