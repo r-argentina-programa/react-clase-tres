@@ -19,7 +19,7 @@ const cacheReducer = (state, action) => {
 export function CacheProvider({ children }) {
   const [state, dispatch] = useReducer(
     cacheReducer,
-    JSON.parse(localStorage.getItem('JIKAN_CACHE'))
+    JSON.parse(localStorage.getItem('JIKAN_CACHE')) || {},
   );
 
   useEffect(() => {
